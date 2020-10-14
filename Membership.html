@@ -76,15 +76,45 @@
         - remove all of the elements with the class="selected" from the list.
 
     */
-    let enteredName=document.querySelector('#student-name')
-    let studentId=document.querySelector('#student-id')
-    let studentGpa=document.querySelector('#student-gpa')
+
+
+
     let student= []
+    let addButton = document.querySelector('#add-student')
+    let clearButton=document.querySelector('#remove-selected-students')
+
     addButton.addEventListener('click', function (){
-        let studentName.push()
+        //create a new li element
+        let newListItem = document.createElement('li')
+        let enteredNameElement=document.querySelector('#student-name')
+        let studentIdElement=document.querySelector('#student-id')
+        let studentGpaElement=document.querySelector('#student-gpa')
+
+
+       // reading text entered
+        let studentName= enteredNameElement.value
+        let studentId = studentIdElement. value
+        let studentGpa = studentGpaElement. value
+        if (studentGpa.length ==0){
+            alert('Please enter GPA')}
+
+            else if (studentGpa>=5){
+                alert('Please enter a valid GPA between 0-4')
+            return
+        }
+        console.log(studentName,studentId,studentGpa)
+
+        let studentData = `${studentName} , Student ID: ${studentId}, Student GPA:  ${studentGpa}`
+        newListItem.innerHTML = studentData
+        let studentList = document.querySelector('#student-list')
+        studentList.appendChild(newListItem)
 
     })
 
+        clearButton.addEventListener('click', function (){
+            listEntered.innerHTML = ''
+            elementsInList = 0
+    })
 </script>
 
 </body>
