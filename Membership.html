@@ -82,6 +82,7 @@
     let student= []
     let addButton = document.querySelector('#add-student')
     let clearButton=document.querySelector('#remove-selected-students')
+   // let studentListE1 = document.querySelector('#student-list')
 
     addButton.addEventListener('click', function (){
         //create a new li element
@@ -98,20 +99,29 @@
         if (studentGpa.length ==0){
             alert('Please enter GPA')}
 
-            else if (studentGpa>=5){
-                alert('Please enter a valid GPA between 0-4')
+            else if (studentGpa>=5) {
+            alert('Please enter a valid GPA between 0-4')
             return
         }
+
         console.log(studentName,studentId,studentGpa)
 
         let studentData = `${studentName} , Student ID: ${studentId}, Student GPA:  ${studentGpa}`
         newListItem.innerHTML = studentData
         let studentList = document.querySelector('#student-list')
         studentList.appendChild(newListItem)
+        newListItem.addEventListener('click', function (){
+            this.classList.toggle('selected')
+        })
 
     })
 
         clearButton.addEventListener('click', function (){
+           // let elementsToDelete = document.querySelectorAll('.delete-me'
+           // elementsToDelete.forEach(function (element){
+           //     element.remove()
+           // })
+
             listEntered.innerHTML = ''
             elementsInList = 0
     })
